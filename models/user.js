@@ -10,7 +10,6 @@ class User extends Model {
     }
 }
 
-
 User.init(
     {
   
@@ -59,7 +58,7 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user'
+    modelName: 'User'
   }
 );
 
