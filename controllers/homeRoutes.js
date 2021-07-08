@@ -94,7 +94,7 @@ router.get('/login', (req, res) => {
         const blog = blogData.get({ plain: true });
   
         // pass data to template
-        res.render('single-blog', {
+        res.render('singleBlog', {
             blog,
             loggedIn: req.session.loggedIn
           });
