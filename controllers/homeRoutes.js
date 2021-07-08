@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
       .then(blogData => {
         const blog = blogData.map(blog => blog.get({ plain: true }));
         res.render('homepage', {
-            blog,
+            blogs: blog,
             loggedIn: req.session.loggedIn
           });
       })

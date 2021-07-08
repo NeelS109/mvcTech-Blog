@@ -21,7 +21,7 @@ router.get('/', withAuth, (req, res) => {
           attributes: ['id', 'comment_text', 'blog_id', 'user_id', 'created_at'],
           include: {
             model: User,
-            attributes: ['username', 'twitter', 'github']
+            attributes: ['username']
           }
         },
         {
@@ -76,7 +76,7 @@ router.get('/', withAuth, (req, res) => {
         // serialize the data
         const blog = blogData.get({ plain: true });
 
-        res.render('edit-blog', {
+        res.render('editBlog', {
             blog,
             loggedIn: true
             });
@@ -117,7 +117,7 @@ router.get('/create/', withAuth, (req, res) => {
       .then(blogData => {
         // serialize data before passing to template
         const blogs = blogData.map(blog => blog.get({ plain: true }));
-        res.render('create-blog', { blogs, loggedIn: true });
+        res.render('createBlog', { blogs, loggedIn: true });
       })
       .catch(err => {
         console.log(err);
