@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const { Blog, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
-    console.log(req.session);
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!', req.session);
     
     Blog.findAll({
       attributes: [
@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
       .then(blogData => {
         const blog = blogData.map(blog => blog.get({ plain: true }));
         res.render('homepage', {
-            blogs,
+            blog,
             loggedIn: req.session.loggedIn
           });
       })

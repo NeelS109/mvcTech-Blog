@@ -7,10 +7,10 @@ const sequelize = require('../config/connection');
 const seedAll = async () => {
   await sequelize.sync({ force: true });
   
-  await userSeeds();
-  
   await blogSeeds();
 
+  await userSeeds();
+  
   await commentSeeds();
 
   process.exit(0);
